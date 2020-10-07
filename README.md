@@ -12,7 +12,7 @@ Personal portfolio website.
     - npm install express-generator -g
     - express -e
         follow the folder structure proposed by prof Tom/ Thiago
-            - move the file "WWW" from /bin/WWW to the front 
+            -- move the file "WWW" from /bin/WWW to the front 
             - change name from "WWW" too "server.js"
             - change npm start file to the new server.js --> go to package.json and change on "scripts" the "start" element.
             - delete bin folder
@@ -21,5 +21,5 @@ Personal portfolio website.
                 - content [ here goes the custom css files ]
                 - scripts [ here goes the main js file ]
             - add "partials" folder on views [ here goes the html templates for each sites - chunks of html ]
-    - npm install nodemon
-    - run nodemon and check.
+ 5. npm install nodemon
+ 6. run nodemon and check.
