@@ -12,7 +12,7 @@ Personal portfolio website.
     - npm install express-generator -g
     - express -e
         follow the folder structure proposed by prof Tom/ Thiago
-            -- move the file "WWW" from /bin/WWW to the front 
+            \n- move the file "WWW" from /bin/WWW to the front 
             - change name from "WWW" too "server.js"
             - change npm start file to the new server.js --> go to package.json and change on "scripts" the "start" element.
             - delete bin folder
