@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/public/Content/app.css' />
+    <%- include partials/global_head.ejs %>
   </head>
 
-
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include partials/index_header.ejs %>
 
+    <%- include partials/index_content.ejs %>
 
-    <script src="/Scripts/app.js"></script>
+    <%- include partials/global_footer.ejs %>
   </body>
-
-
+  
 </html>

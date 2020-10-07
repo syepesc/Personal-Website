@@ -17,8 +17,8 @@ router.get('/about', function(req, res, next) {
 });
 
 /* GET Products page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', { title: 'Products'});
+router.get('/portfolio', function(req, res, next) {
+  res.render('index', { title: 'Portfolio'});
 });
 
 /* GET Services page. */
