@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include partials/head_global.ejs %>
+  </head>
+
+  <body>
+    <%- include partials/header_template.ejs %>
+
+    <% if (title == "About"){ %>
+      <%- include partials/content_about.ejs %>
+    <% } else if (title == "Portfolio") { %>
+      <%- include partials/content_portfolio.ejs %>
+    <% } else if (title == "Services") { %>
+      <%- include partials/content_services.ejs %>
+    <% } else if (title == "Contact") { %>
+      <%- include partials/content_contact.ejs %>
+    <% } else { %>
+      <%- include ./error.ejs %>
+    <% } %> 
+  </body>
+  
+  <footer>
+    <%- include partials/footer_global.ejs %>
+  </footer>
+
+  <%- include partials/scripts_global.ejs %>
+</html>

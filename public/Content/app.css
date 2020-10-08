@@ -12,19 +12,21 @@
 }
 
 html {
-    background-color: white;
+    background-color: lightgray;
     color: grey;
     font-family: 'Lato', 'Arial', sans-serif;
     /* more than one in case user don't have internet */
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
+    max-width: 2280px;
+    margin: auto;
 }
 
 .logo {
     /* created on: https://www.freelogodesign.org/ */
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     margin-top: 10px;
 }
 
@@ -42,6 +44,7 @@ html {
 /* -------------------------------------------------------------------------------------------- */
 
 
+
 /* INDEX HEADER */
 /* -------------------------------------------------------------------------------------------- */
 
@@ -56,7 +59,7 @@ html {
     max-width: 100%;
 }
 
-.img-responsive{
+.index-img-responsive{
     max-width: 350px;
     border-radius: 50%;
     background-color: white;
@@ -64,71 +67,105 @@ html {
     margin-top: 10%;
 }
 
-.header-text {
+.index-header-text {
     margin-top: 5%;
     color: white;
     text-align: center;
 }
 
-hr {
+.index-hr {
     border: 1px solid white;
     width: 550px;
     margin: auto;
 }
 
-
-/* -------------------------------------------------------------------------------------------- */
-/* NAVBAR */
+/* TEMPLATE HEADER */
 /* -------------------------------------------------------------------------------------------- */
 
-.navbar{
-    background-color: transparent !important;
+.template-header {
+    background-color: #9e8fb2;
+    background-image: linear-gradient(315deg, #9e8fb2 0%, #a7acd9 74%); /* Linear gradient taken from: https://www.eggradients.com/ */
 }
 
-.navbar .navbar-brand {
-    color: white;
-}
+/* -------------------------------------------------------------------------------------------- */
+/* NAVBARS */
+/* -------------------------------------------------------------------------------------------- */
 
 .navbar .navbar-nav{
     margin: 0 auto;
 }
 
-.navbar .nav-item a {
+.navbar-toggler {
+    border-color: white !important;
+    margin-left: 12px;
+} 
+
+/* INDEX NAVBAR */
+/* -------------------------------------------------------------------------------------------- */
+
+.custom-index-navbar{
+    background-color: transparent !important;
+}
+
+.custom-index-nav-item  a {
     color: white !important;
     margin-right: 50px;
 }
 
-.navbar .nav-item-active a{
+.custom-index-item-active a{
     color: #e67e22 !important;
+    font-weight: bold;
     border-bottom: 2px solid #e67e22;
 }
 
-.navbar .nav-item a:hover,
-.navbar .nav-item a:active {
+.custom-index-nav-item a:hover,
+.custom-index-nav-item a:active {
     color: #e67e22 !important;
     border-bottom: 2px solid #e67e22;
     transition: border-bottom 0.5s;
 }
-.navbar-toggler {
-    border-color: white !important;
-    margin-left: 20px;
-} 
 
+
+/* TEMPLATE NAVBAR */
+/* -------------------------------------------------------------------------------------------- */
+
+.custom-template-navbar{
+    background-color: transparent !important;
+}
+
+.custom-template-nav-item  a {
+    color: white !important;
+    margin-right: 50px;
+}
+
+.custom-template-item-active a{
+    color: #323741 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #323741;
+}
+
+.custom-template-nav-item a:hover,
+.custom-template-nav-item a:active {
+    color: #323741 !important;
+    border-bottom: 2px solid #323741;
+    transition: border-bottom 0.5s;
+}
 
 /* -------------------------------------------------------------------------------------------- */
 /* BUTTONS */
 /* -------------------------------------------------------------------------------------------- */
 
 
+
 /* INDEX BUTTONS */
 /* -------------------------------------------------------------------------------------------- */
 
-.header-buttons{
+.index-header-buttons{
     text-align: center;
     margin-top: 3%;
 }
 
-.header-btn{
+.index-header-btn{
     display: inline-block;
     padding: 10px 30px;
     font-size: 300;
@@ -139,28 +176,28 @@ hr {
     transition: background-color 0.3s, border 0.3s, color 0.3s;
 }
 
-.btn-full:link,
-.btn-full:visited {
+.index-btn-full:link,
+.index-btn-full:visited {
     background-color: #e67e22;
     border: 1px solid #e67e22;
     color: white;
 }
 
-.btn-ghost:link,
-.btn-ghost:visited {
+.index-btn-ghost:link,
+.index-btn-ghost:visited {
     border: 1px solid #e67e22;
     color: #e67e22;
 }
 
-.btn-full:hover,
-.btn-full:active {
+.index-btn-full:hover,
+.index-btn-full:active {
     text-decoration: none;
     border: 1px solid #b05d14;
     background-color: #b05d14;
 }
 
-.btn-ghost:hover,
-.btn-ghost:active {
+.index-btn-ghost:hover,
+.index-btn-ghost:active {
     text-decoration: none;
     border: 1px solid #b05d14;
     background-color: #b05d14;
@@ -171,9 +208,19 @@ hr {
 /* SECTIONS */
 /* -------------------------------------------------------------------------------------------- */
 
-.section-home {
-    background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+/* INDEX SECTIONS */
+/* -------------------------------------------------------------------------------------------- */
+
+/*
+.section-index-1 {
+}
+*/
+
+/* TEMPLATE SECTIONS */
+/* -------------------------------------------------------------------------------------------- */
+
+.section-template-1 {
+    
 }
