@@ -9,19 +9,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', 'Arial', sans-serif; /* more than one in case user don't have internet */
+
+    font-weight: 300;
+    font-size: 20px;
 }
 
 html {
-    background-color: lightgray;
-    color: grey;
-    font-family: 'Lato', 'Arial', sans-serif;
-    /* more than one in case user don't have internet */
-    font-weight: 300;
-    font-size: 20px;
-    text-rendering: optimizeLegibility;
     max-width: 2280px;
     margin: auto;
 }
+
 
 .logo {
     /* created on: https://www.freelogodesign.org/ */
@@ -30,12 +28,112 @@ html {
     margin-top: 10px;
 }
 
+i {
+    margin-right: 10px;
+}
+
+.col {
+    margin: auto;
+}
+
 /* ---------------------------------------------------------------------------------------------------------------------------- */
 
 /* CUSTOM CSS */
 
 /* --------------------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+/* -------------------------------------------------------------------------------------------- */
+/* FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+
+
+/* INDEX FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+.index-h1,
+.index-h4,
+.index-h5 {
+    color: white;
+}
+
+.index-hr {
+    border: 1px solid white;
+    width: 550px;
+    margin: auto;
+}
+
+
+/* ABOUT FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+.about-h2,
+.about-h1 {
+    color: grey;
+    text-align: center;
+}
+
+.about-hr {
+    border: 1px solid #e67e22;
+    width: 450px;
+    margin: auto;
+}
+
+.about-p {
+    color: grey;
+    text-align: center;
+    padding-right: 5%;
+}
+
+.about-p-2 {
+    position: absolute; 
+    bottom: 5%;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.about-p-3 {
+    color: grey;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+/* ABOUT FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+.portfolio-h5 {
+    color: grey;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* SERVICES FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+.services-p {
+    color: #e67e22;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+/* FOOTER FONTS */
+/* -------------------------------------------------------------------------------------------- */
+
+.services-p {
+    text-align: center;
+    color: grey;
+}
+
+.services-p a{
+    text-align: center;
+    color: grey;
+}
 
 
 
@@ -50,21 +148,14 @@ html {
 
 .index-header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Assets/images/workspace.jpg);
+    background-color: black;
     /* fit in header box */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     /* relative to 1% of viewport width */
     height: 100vh;
-    max-width: 100%;
-}
-
-.index-img-responsive{
-    max-width: 350px;
-    border-radius: 50%;
-    background-color: white;
-    padding: 5px;
-    margin-top: 10%;
+    width: 100%;
 }
 
 .index-header-text {
@@ -73,19 +164,6 @@ html {
     text-align: center;
 }
 
-.index-hr {
-    border: 1px solid white;
-    width: 550px;
-    margin: auto;
-}
-
-/* TEMPLATE HEADER */
-/* -------------------------------------------------------------------------------------------- */
-
-.template-header {
-    background-color: #9e8fb2;
-    background-image: linear-gradient(315deg, #9e8fb2 0%, #a7acd9 74%); /* Linear gradient taken from: https://www.eggradients.com/ */
-}
 
 /* -------------------------------------------------------------------------------------------- */
 /* NAVBARS */
@@ -94,11 +172,6 @@ html {
 .navbar .navbar-nav{
     margin: 0 auto;
 }
-
-.navbar-toggler {
-    border-color: white !important;
-    margin-left: 12px;
-} 
 
 /* INDEX NAVBAR */
 /* -------------------------------------------------------------------------------------------- */
@@ -125,6 +198,10 @@ html {
     transition: border-bottom 0.5s;
 }
 
+.custom-index-navtoggler {
+    border-color: white !important;
+    margin-left: 12px;
+} 
 
 /* TEMPLATE NAVBAR */
 /* -------------------------------------------------------------------------------------------- */
@@ -134,22 +211,101 @@ html {
 }
 
 .custom-template-nav-item  a {
-    color: white !important;
+    color: grey !important;
     margin-right: 50px;
 }
 
 .custom-template-item-active a{
-    color: #323741 !important;
+    color: #e67e22 !important;
     font-weight: bold;
-    border-bottom: 2px solid #323741;
+    border-bottom: 2px solid #e67e22;
 }
 
 .custom-template-nav-item a:hover,
 .custom-template-nav-item a:active {
-    color: #323741 !important;
-    border-bottom: 2px solid #323741;
+    color: #e67e22 !important;
+    border-bottom: 2px solid #e67e22;
     transition: border-bottom 0.5s;
 }
+
+.custom-template-navtoggler {
+    border-color: gray !important;
+    margin-left: 12px;
+} 
+
+/* -------------------------------------------------------------------------------------------- */
+/*  IMAGES */
+/* -------------------------------------------------------------------------------------------- */
+
+
+/* INDEX IMAGES */
+/* -------------------------------------------------------------------------------------------- */
+
+.index-pic-1 {
+    max-width: 350px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+    margin-top: 8%;
+}
+
+
+/* ABOUT IMAGES */
+/* -------------------------------------------------------------------------------------------- */
+.about-pic-1 {
+    min-width: 600px;
+}
+
+.custom-about-col {
+    padding: 0;
+    margin: 0;
+}
+
+.about-gallery {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.about-gallery img {
+    opacity: 0.6;
+    width: 100%;
+    height: auto;
+    transform: scale(1.2);
+    transition: transform 0.5s;
+}
+
+.about-gallery img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+
+/* PORTFOLIO IMAGES */
+/* -------------------------------------------------------------------------------------------- */
+
+.portfolio-pic-1 {
+    margin: auto;
+    display: block;
+    height: auto;
+    max-height: 500px;
+    min-width: 500px;
+}
+
+/* SERVICES IMAGES */
+/* -------------------------------------------------------------------------------------------- */
+
+.services-img {
+    border: 1px solid #e67e22;
+    padding: 10px;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
 
 /* -------------------------------------------------------------------------------------------- */
 /* BUTTONS */
@@ -204,6 +360,58 @@ html {
     color: white;
 }
 
+
+/* ABOUT BUTTONS */
+/* -------------------------------------------------------------------------------------------- */
+
+.about-btn-1 {
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+
+/* PORTFOLIO BUTTONS */
+/* -------------------------------------------------------------------------------------------- */
+
+.portfolio-btn-full:link,
+.portfolio-btn-full:visited {
+    background-color: #009FFD;
+    border: 1px solid #009FFD;
+    color: white;
+}
+
+.portfolio-btn-full:hover,
+.portfolio-btn-full:active {
+    text-decoration: none;
+    border: 1px solid #3EADCF;
+    background-color: #3EADCF;
+}
+
+
+/* CONTACT BUTTONS */
+/* -------------------------------------------------------------------------------------------- */
+
+.submit-btn:link,
+.submit-btn:visited {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+    text-decoration: none;
+    border: 1px solid #b05d14;
+    background-color: #b05d14;
+}
+
+
+
 /* -------------------------------------------------------------------------------------------- */
 /* SECTIONS */
 /* -------------------------------------------------------------------------------------------- */
@@ -218,9 +426,41 @@ html {
 }
 */
 
-/* TEMPLATE SECTIONS */
+
+/* ABOUT SECTIONS */
 /* -------------------------------------------------------------------------------------------- */
 
-.section-template-1 {
-    
+.section-about-1 {
+    background-color: #f4f4f4;
+}
+
+.section-about-2 {
+    background-color: #fff;
+}
+
+.section-about-3 {
+    background-color: #f4f4f4;
+}
+
+
+/* ABOUT SECTIONS */
+/* -------------------------------------------------------------------------------------------- */
+
+.section-portfolio-1 {
+    background: linear-gradient(to bottom right, #f5ec00 0%, #f8fadb 100%);
+    margin-bottom: 20px;
+}
+
+.section-portfolio-2 {
+    background-color: #abe9cd;
+    background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);    
+    margin-bottom: 20px;
+}
+
+.section-portfolio-3 {
+    background-color: #fad0c4;
+    background-image: linear-gradient(315deg, #fad0c4 0%, #f1a7f1 74%);    
+    height: 400px;
+    margin-bottom: 20px;
+
 }

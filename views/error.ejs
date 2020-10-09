@@ -1,3 +1,24 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include partials/head_global.ejs %>
+  </head>
+
+  <body>
+    <%- include partials/header_template.ejs %>
+    <div class="container">
+        <h1><%= message %></h1>
+        <h2><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
+    </div>
+  </body>
+  
+  <footer>
+    <%- include partials/footer_global.ejs %>
+  </footer>
+
+  <%- include partials/scripts_global.ejs %>
+</html>
+
+
+
