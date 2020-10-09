@@ -1,5 +1,5 @@
-const { event } = require("jquery");
-const { format } = require("morgan");
+// const { event } = require("jquery");
+// const { format } = require("morgan");
 
 // IIFE -- Immediately Invoked Function Expression
 (function(){
@@ -16,15 +16,12 @@ const { format } = require("morgan");
         sendButton.addEventListener("click", (event) => {
             event.preventDefault();
 
-            let fullName = document.getElementById("fullName").Value;
-            let contactNumber = document.getElementById("contactNumber").Value;
-            let email = document.getElementById("email").Value;
-            let message = document.getElementById("message").Value;
+            let fullName = document.getElementById("fullName").value;
+            let contactNumber = document.getElementById("contactNumber").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
 
-            console.info(`Full name: ${fullName}
-            Contact Number: ${contactNumber}
-            Email: ${email}
-            Message: ${message}`);
+            console.info(`Full name: ${fullName}\nContact Number: ${contactNumber}\nEmail: ${email}\nMessage: ${message}`);
 
             form.reset();
         });
