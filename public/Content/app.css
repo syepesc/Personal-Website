@@ -156,6 +156,7 @@ i {
     /* relative to 1% of viewport width */
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 
 .index-header-text {
@@ -246,7 +247,7 @@ i {
     border-radius: 50%;
     background-color: white;
     padding: 5px;
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 
