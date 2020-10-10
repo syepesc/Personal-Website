@@ -11,7 +11,6 @@
 
     if (document.title == "Contact") {
         let sendButton = document.getElementById("submit");
-        let form = document.forms[0];
 
         sendButton.addEventListener("click", (event) => {
             event.preventDefault();
@@ -23,7 +22,7 @@
 
             console.info(`Full name: ${fullName}\nContact Number: ${contactNumber}\nEmail: ${email}\nMessage: ${message}`);
 
-            form.reset();
+            document.getElementById("contactForm").reset();
         });
     }
 
