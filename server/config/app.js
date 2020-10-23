@@ -5,6 +5,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// modules for authentication
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
+
 // DATABASE SETUP
 let mongoose = require('mongoose');
 let DB = require('./db');
@@ -20,6 +27,7 @@ mongoDB.once('open', ()=>{
 
 // set up routes
 var indexRouter = require('../routes/index');
+const { Passport } = require('passport');
 
 var app = express();
 
@@ -36,10 +44,41 @@ app.use(express.static(path.join(__dirname, '../../node_modules'))); // added to
 
 app.use('/', indexRouter);
 
+// setup express session
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize flash
+app.use(flash());
+
+
+// PASSPORT configuration
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport user configuration
+
+
+// create user model instance
+let userModel = require('../models/user');
+let User = userModel.User;
+
+// serialize and deserialize the user info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
