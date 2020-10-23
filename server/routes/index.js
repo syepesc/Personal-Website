@@ -1,34 +1,31 @@
-var express = require('express');
-var app = express.Router();
+let express = require('express');
+let app = express.Router();
+
+
+// import controller
+let indexController = require('../controllers/index');
 
 /* GET home page. '/' */
-app.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+app.get('/', indexController.displayHomePage);
 
 /* GET home page. '/home' */
-app.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home'});
-});
+app.get('/home', indexController.displayHomePage);
+
 
 /* GET About Us page. */
-app.get('/about', function(req, res, next) {
-  res.render('template', { title: 'About'});
-});
+app.get('/about', indexController.displayAboutPage);
+
 
 /* GET Products page. */
-app.get('/portfolio', function(req, res, next) {
-  res.render('template', { title: 'Portfolio'});
-});
+app.get('/portfolio', indexController.displayPortfolioPage);
+
 
 /* GET Services page. */
-app.get('/services', function(req, res, next) {
-  res.render('template', { title: 'Services'});
-});
+app.get('/services', indexController.displayServicesPage);
+
 
 /* GET Contact Us page. */
-app.get('/contact', function(req, res, next) {
-  res.render('template', { title: 'Contact'});
-});
+app.get('/contact', indexController.displayContactPage);
+
 
 module.exports = app;
