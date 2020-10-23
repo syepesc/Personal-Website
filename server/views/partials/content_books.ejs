@@ -25,13 +25,13 @@
             </tr>
 
             <!-- we can iterate each row: -->
-            <% for(let count = 0; count < bookList.length; count++) { %>
+            <% for(let count = 0; count < BookList.length; count++) { %>
                 <tr>
-                    <td class="text-center"><%= bookList[count].name %></td>
-                    <td class="text-center"><%= bookList[count].author %></td>
-                    <td class="text-center"><%= bookList[count].published %></td>
-                    <td class="text-center"><%= bookList[count].description %></td>
-                    <td class="text-center"><%= bookList[count].price %></td>
+                    <td class="text-center"><%= BookList[count].name %></td>
+                    <td class="text-center"><%= BookList[count].author %></td>
+                    <td class="text-center"><%= BookList[count].published %></td>
+                    <td class="text-center"><%= BookList[count].description %></td>
+                    <td class="text-center"><%= BookList[count].price %></td>
                 </tr>
             <% } %>
         </table>
