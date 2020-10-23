@@ -26,10 +26,11 @@ mongoDB.once('open', ()=>{
 });
 
 // set up routes
-var indexRouter = require('../routes/index');
+let indexRouter = require('../routes/index');
 const { Passport } = require('passport');
 
-var app = express();
+// initialize express
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -70,7 +71,6 @@ let User = userModel.User;
 // serialize and deserialize the user info
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
 
 
 

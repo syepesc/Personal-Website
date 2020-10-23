@@ -15,6 +15,10 @@
       <%- include partials/content_services.ejs %>
     <% } else if (title == "Contact") { %>
       <%- include partials/content_contact.ejs %>
+    <% } else if (title == "Login") { %>
+      <%- include user_authentication/login.ejs %>
+    <% } else if (title == "Register") { %>
+      <%- include user_authentication/register.ejs %>
     <% } else { %>
       <%- include ./error.ejs %>
     <% } %> 

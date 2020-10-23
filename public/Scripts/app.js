@@ -9,7 +9,7 @@
         console.log("App Started...");
     }
 
-    // CONTACT form
+    // CONTACT form handler
     if (document.title == "Contact") {
         let sendButton = document.getElementById("submit");
 
@@ -29,5 +29,4 @@
 
 
     window.addEventListener("load", Start);
-
 })();

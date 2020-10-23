@@ -1,58 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <%- include partials/head_global.ejs %>
-  </head>
+<!-- Website Content -->
 
-    <body>
-        <%- include partials/header_template.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4-md-4">
+            <h1>Please Login</h1> 
+            <form action="" method="POST">
+                <fieldset class="form-group">
+                    <label for="username">Username: </label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username:" required autofocus>
+                </fieldset>
 
-        <div class="container">
-            <% if(messages.length > 0 ) { %>
-                <div class="alert alert-danger">
-                    <%= messages %>
-                </div>
-            <% } %>
+                <fieldset class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="text" class="form-control" name="password" id="password" placeholder="Enter password:" required>
+                </fieldset>
 
-            <div class="row">
-                <div class="offset-md-4-md-4">
-                    <h1>Please Login</h1> 
-                    <form action="" method="POST">
-                        <fieldset class="form-group">
-                            <label for="username">Username: </label>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username:" required autofocus>
-                        </fieldset>
+                <fieldset class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email:" required>
+                </fieldset>
 
-                        <fieldset class="form-group">
-                            <label for="password">Password: </label>
-                            <input type="text" class="form-control" name="password" id="password" placeholder="Enter password:" required>
-                        </fieldset>
+                <fieldset class="form-group">
+                    <label for="displayName">Display Name: </label>
+                    <input type="text" class="form-control" name="displayName" id="displayName" placeholder="Enter display name:" required>
+                </fieldset>
 
-                        <fieldset class="form-group">
-                            <label for="email">Email: </label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email:" required>
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="displayName">Display Name: </label>
-                            <input type="text" class="form-control" name="displayName" id="displayName" placeholder="Enter display name:" required>
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <input type="submit" class="btn btn-success" value="Register">
-                            <a href="/" class="btn btn-warning">
-                                <input type="button" class="btn btn-warning" value="Cancel">
-                            </a>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+                <fieldset class="form-group">
+                    <input type="submit" class="btn btn-success" value="Register">
+                    <a href="/" class="btn btn-warning">
+                        <input type="button" class="btn btn-warning" value="Cancel">
+                    </a>
+                </fieldset>
+            </form>
         </div>
-    </body>
-  
-  <footer>
-    <%- include partials/footer_global.ejs %>
-  </footer>
-
-  <%- include partials/scripts_global.ejs %>
-</html>
+    </div>
+</div>
