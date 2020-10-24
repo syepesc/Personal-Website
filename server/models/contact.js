@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 
 // create business contact schema
-let BContact = mongoose.Schema (
+let Contact = mongoose.Schema (
     // business contact fields
     {
     contactName: {
@@ -37,4 +37,4 @@ let BContact = mongoose.Schema (
     }
 );
 
-module.exports.BContact = mongoose.model('BContact', BContact);
+module.exports = mongoose.model('Contact', Contact);

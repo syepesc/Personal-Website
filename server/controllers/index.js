@@ -2,6 +2,7 @@ let express = require('express');
 let app = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
+let passportLocal = require('passport-local-mongoose');
 
 // create user model
 let userModel = require('../models/user');
@@ -14,23 +15,23 @@ module.exports = {
 
     // INDEX CONTROLLERS
     displayHomePage: (req, res, next) => {
-        res.render('index', { title: 'Home' });
+        res.render('index', { title: 'Home', displayName: req.user ? req.user.displayName : '' });
     },
 
     displayAboutPage: (req, res, next) => {
-        res.render('template', { title: 'About' });
+        res.render('template', { title: 'About', displayName: req.user ? req.user.displayName : '' });
     },
 
     displayPortfolioPage: (req, res, next) => {
-        res.render('template', { title: 'Portfolio' });
+        res.render('template', { title: 'Portfolio', displayName: req.user ? req.user.displayName : '' });
     },
 
     displayServicesPage: (req, res, next) => {
-        res.render('template', { title: 'Services' });
+        res.render('template', { title: 'Services', displayName: req.user ? req.user.displayName : '' });
     },
 
     displayContactPage: (req, res, next) => {
-        res.render('template', { title: 'Contact' });
+        res.render('template', { title: 'Contact', displayName: req.user ? req.user.displayName : '' });
     },
 
     // USER-LOGIN CONTROLLERS
@@ -38,7 +39,7 @@ module.exports = {
         if (!req.User) {
             res.render('template',{
                 title: "Login",
-                //messages: req.flash('loginMessage'),
+                messages: req.flash('loginMessage'),
                 displayName: req.User ? req.User.displayName : ''
             })
         } else {
@@ -53,16 +54,16 @@ module.exports = {
                 return next(err);
             }
             // is there a user login error?
-            if (!User) {
-                //req.flash('loginMessage', 'Authentication Error');
+            if (!user) {
+                req.flash('loginMessage', 'Authentication Error');
                 return res.redirect('/login');
             }
-            req.login(User, (err) => {
+            req.login(user, (err) => {
                 // server error?
                 if(err) {
                     return next(err);
                 }
-                return res.redirect('/'); // need to redirect to CONTACT-LIST
+                return res.redirect('/book-list'); // need to redirect to CONTACT-LIST
             });
         })(req, res, next);
     },
@@ -72,7 +73,7 @@ module.exports = {
         if (!req.User) {
             res.render('template', {
                 title: "Register",
-                //messages: req.flash('registerMessage'),
+                messages: req.flash('registerMessage'),
                 displayName: req.User ? req.User.displayName : ''
             });
         } else {
@@ -89,21 +90,19 @@ module.exports = {
             displayName: req.body.displayName
         });
 
-        User.register(newUser, req.body.password, (user) => {
+        User.register(newUser, req.body.password, (err) => {
             if (err) {
                 console.log("Error inserting new user");
                 if (err.name == 'userExistsError') {
-                    /*
                     req.flash(
                         'registerMessage',
                         'registration Error: User already exist'
                     );
-                    */
                     console.log('Error: User already exists!');
                 }
-                res.render('template', {
+                return res.render('template', {
                     title: 'Register',
-                    //messages: req.flash('registerMessage'),
+                    messages: req.flash('registerMessage'),
                     displayName: req.User ? req.User.displayName : ''
                 });
             } else {
@@ -111,9 +110,9 @@ module.exports = {
 
                 // redirect user and authenticate
 
-                return passport.authenticate('local', (req, res, () => {
-                    res.redirect('/'); // redirect to CONTACT-LIST as logged in
-                }))
+                return passport.authenticate('local')(req, res, () => {
+                    res.redirect('/book-list'); // redirect to CONTACT-LIST as logged in
+                });
             }
         })
     },

@@ -49,6 +49,14 @@
         <a class="nav-link" href="/book-list">BOOKS</a>
       </li>
 
+      <% if (title == "BContact"){ %>
+        <li class="custom-template-nav-item custom-template-item-active nav-item nav-item-active">
+        <% } else  { %>
+        <li class="custom-template-nav-item nav-item">
+        <% } %>
+        <a class="nav-link" href="/contact-list">BUSINESS CONTACTS</a>
+      </li>
+
       <% if (title == "Contact"){ %>
         <li class="custom-template-nav-item custom-template-item-active nav-item nav-item-active">
         <% } else  { %>
@@ -56,6 +64,14 @@
         <% } %>
         <a class="nav-link" href="/contact">CONTACT</a>
       </li>
+
+      <!-- LOGIN AND LOGOUT DISPLAY ON NAV BAR -->
+      <% if(typeof displayName == 'string' && displayName) { %>
+      <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%= displayName %></li>
+      <li class="nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
+      <% } else { %>
+        <li class="nav-item"><a href="/login" class="nav-link"><i class="fas fa-lg fa-sign-int-alt"></i> Login</a></li>
+      <% } %>
     </ul>
   </div>
 </nav>

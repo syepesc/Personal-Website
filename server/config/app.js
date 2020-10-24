@@ -28,8 +28,7 @@ mongoDB.once('open', ()=>{
 // set up routes
 let indexRouter = require('../routes/index');
 let booksRouter = require('../routes/book');
-
-const { Passport } = require('passport');
+let contactRouter = require('../routes/contact');
 
 // initialize express
 let app = express();
@@ -44,9 +43,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public'))); // the express.static indicates that every time there is a get or post request the app is going to .use() or load this resources before any other files
 app.use(express.static(path.join(__dirname, '../../node_modules'))); // added to predetermine the path for libraries used inside node modules
-
-app.use('/', indexRouter);
-app.use('/book-list', booksRouter);
 
 // setup express session
 app.use(session({
@@ -66,15 +62,21 @@ app.use(passport.session());
 
 // passport user configuration
 
-
 // create user model instance
 let userModel = require('../models/user');
 let User = userModel.User;
+
+// implement a user authentication strategy
+passport.use(User.createStrategy());
  
 // serialize and deserialize the user info
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+app.use('/', indexRouter);
+app.use('/book-list', booksRouter);
+app.use('/contact-list', contactRouter);
 
 
 // catch 404 and forward to error handler
