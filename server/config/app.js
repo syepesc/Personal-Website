@@ -27,6 +27,8 @@ mongoDB.once('open', ()=>{
 
 // set up routes
 let indexRouter = require('../routes/index');
+let booksRouter = require('../routes/book');
+
 const { Passport } = require('passport');
 
 // initialize express
@@ -44,6 +46,7 @@ app.use(express.static(path.join(__dirname, '../../public'))); // the express.st
 app.use(express.static(path.join(__dirname, '../../node_modules'))); // added to predetermine the path for libraries used inside node modules
 
 app.use('/', indexRouter);
+app.use('/book-list', booksRouter);
 
 // setup express session
 app.use(session({
