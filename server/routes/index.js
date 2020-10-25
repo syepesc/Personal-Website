@@ -31,7 +31,7 @@ app.get('/contact', indexController.displayContactPage);
 app.get('/login', indexController.displayLoginPage);
 
 /* POST route for processing the login page */
-app.post('/register', indexController.processLoginPage);
+app.post('/login', indexController.processLoginPage);
 
 /* GET route for displaying the register page */
 app.get('/register', indexController.displayRegisterPage);

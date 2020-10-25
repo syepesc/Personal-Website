@@ -119,6 +119,6 @@ module.exports = {
 
     performLogout: (req, res, next) => {
         req.logout();
-        red.redirect('/');
+        res.redirect('/');
     }
 };

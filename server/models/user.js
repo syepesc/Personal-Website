@@ -10,12 +10,14 @@ let User = mongoose.Schema (
             trim: true,
             required: 'Username is required.'
         },
+        /* Process on passport.authenticate - encrypted
         password: {
             type: String,
             default: "",
             trim: true,
             required: 'Password is required.'
         },
+        */
         email: {
             type: String,
             default: "",

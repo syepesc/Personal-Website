@@ -67,7 +67,7 @@
 
       <!-- LOGIN AND LOGOUT DISPLAY ON NAV BAR -->
       <% if(typeof displayName == 'string' && displayName) { %>
-        <li class="custom-index-nav-item custom-index-item-active nav-item"><i class="fas fa-lg fa-user"></i>Welcome, <%= displayName %></li>
+        <li class="custom-index-nav-item nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-user"></i>Welcome, <%= displayName %></a></li>
         <li class="custom-index-nav-item nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
         <% } else { %>
           <li class="custom-index-nav-item nav-item"><a href="/login" class="nav-link"><i class="fas fa-lg fa-sign-int-alt"></i> Login</a></li>
