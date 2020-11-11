@@ -4,6 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
 // modules for authentication
 let session = require('express-session');
@@ -14,10 +15,10 @@ let flash = require('connect-flash');
 
 // DATABASE SETUP
 let mongoose = require('mongoose');
-let DB = require('./db');
+const DB = process.env.MONGO_URI
 
 // point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection Error: '));
