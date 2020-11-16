@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let jwt = require('jsonwebtoken');
 
 // create a reference to the model
 let Book = require('../models/book');
@@ -26,7 +27,7 @@ module.exports.displayAddPage = (req, res, next) => {
 
 module.exports.processAddPage = (req, res, next) => {
     let newBook = Book({
-        "name": req.body.name,
+        "title": req.body.title,
         "author": req.body.author,
         "published": req.body.published,
         "description": req.body.description,
@@ -69,12 +70,12 @@ module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
     let updatedBook = Book({
-        "_id": id,
-        "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+        _id: id,
+        title: req.body.title,
+        author: req.body.author,
+        published: req.body.published,
+        description: req.body.description,
+        price: req.body.price
     });
 
     Book.updateOne({_id: id}, updatedBook, (err) => {

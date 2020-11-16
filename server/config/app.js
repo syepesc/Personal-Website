@@ -1,14 +1,20 @@
 // third parties packages
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+let cors = require('cors');
 require('dotenv').config();
 
 // modules for authentication
 let session = require('express-session');
 let passport = require('passport');
+
+let passportJWT = require('passport-jwt');
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
+
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
@@ -16,7 +22,6 @@ let flash = require('connect-flash');
 // DATABASE SETUP
 let mongoose = require('mongoose');
 const DB = process.env.MONGO_URI
-
 // point mongoose to the DB URI
 mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -74,7 +79,24 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+let jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = process.env.SECRET;
 
+let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
+  User.findById(jwt_payload.id)
+  .then(user => {
+    return done(null, user);
+  })
+  .catch(err =>{
+    return done(null, false);
+  });
+});
+
+passport.use(strategy);
+
+
+// routing
 app.use('/', indexRouter);
 app.use('/book-list', booksRouter);
 app.use('/contact-list', contactRouter);

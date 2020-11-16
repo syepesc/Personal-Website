@@ -4,6 +4,9 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 let passportLocal = require('passport-local-mongoose');
 
+
+let jwt = require('jsonwebtoken');
+
 // create user model
 let userModel = require('../models/user');
 let User = userModel.User; // alias for User schema
@@ -63,7 +66,32 @@ module.exports = {
                 if(err) {
                     return next(err);
                 }
-                return res.redirect('/book-list'); // need to redirect to CONTACT-LIST
+
+                const payload = {
+                    id: user.id,
+                    displayName: user.displayName,
+                    username: user.username,
+                    email: user.email
+                }
+
+                const authToken = jwt.sign(payload, process.env.SECRET, {
+                    expiresIn: 604800 // expires in: 1 week.
+                });
+
+                /* getting ready to convert to API
+                res.json({
+                    success: true,
+                    msg: "User logged in successfully",
+                    user: {
+                        id: user.id,
+                        displayName: user.displayName,
+                        username: user.username,
+                        email: user.email
+                    },
+                    token: authToken
+                });
+                */ 
+                return res.redirect('/');
             });
         })(req, res, next);
     },

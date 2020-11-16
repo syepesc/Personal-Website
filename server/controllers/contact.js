@@ -1,6 +1,8 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let jwt = require('jsonwebtoken');
+
 
 // create a reference to the model
 let Book = require('../models/book');
@@ -70,11 +72,12 @@ module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
     let updatedContact = Contact({
-        "contactName": req.body.contactName,
-        "contactNumber": req.body.contactNumber,
-        "contactEmail": req.body.contactEmail,
-        "created": req.body.created,
-        "update": req.body.update
+        _id: id,
+        contactName: req.body.contactName,
+        contactNumber: req.body.contactNumber,
+        contactEmail: req.body.contactEmail,
+        created: req.body.created,
+        update: req.body.update
     });
 
     Contact.updateOne({_id: id}, updatedContact, (err) => {
