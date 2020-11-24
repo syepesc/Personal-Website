@@ -14,7 +14,7 @@ module.exports.displayBookList = (req, res, next) => {
         }
         else
         {
-            //console.log(BookList);
+            //console.log(bookList);
 
             res.render('book/list', {title: 'Books', BookList: bookList, displayName: req.user ? req.user.displayName : ''});      
         }

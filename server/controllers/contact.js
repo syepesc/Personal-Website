@@ -16,8 +16,6 @@ module.exports.displayContactList = (req, res, next) => {
         }
         else
         {
-            //console.log(BookList);
-
             res.render('contact/list', {title: 'Business Contacts', ContactList: contactList, displayName: req.user ? req.user.displayName : ''});      
         }
     });
