@@ -10,7 +10,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', 'Arial', sans-serif; /* more than one in case user don't have internet */
-
     font-weight: 300;
     font-size: 20px;
 }
